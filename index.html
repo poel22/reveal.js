@@ -1,17 +1,22 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+
+
 	<head>
 		<meta charset="utf-8">
+
+		<title>Fragebogen Unterhaltung &amp; Lesen</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
-
-		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/theme/prime.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -21,27 +26,142 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section class="slide level1">
+				</section>
+				<section class="slide level1">
+					<h1 style="text-transform: none;">
+						Unterhaltung &amp; Lesen
+					</h1>
+				</section>
+				<section id="overview" class="slide level1">
+					<h1>Übersicht</h1>
+					<ol>
+						<li class="fragment fade-up">Fragen</li>
+						<li class="fragment fade-up">Ziele</span></li>
+						<li class="fragment fade-up">Ergebnisse</li>
+					</ol>
+				</section>
+				<section>
+					<section>
+						<h1>Fragen</h1>
+					</section>
+					<section>
+						<ol>
+							<li>18 Fragen insgesamt</li>
+							<li class="fragment fade-up">4 zur Gruppierung</li>
+							<li class="fragment fade-up">7 zu Streaming</li>
+							<li class="fragment fade-up">6 zu Lesen</li>
+							<li class="fragment fade-up">1 random</li>
+						</ol>
+					</section>
+					<section>
+						<h1>Antworten</h1>
+					</section>
+					<section>
+						<h1>Ausgeglichenheit Gruppen</h1>
+						<p>Verteilung Geschlecht</p>
+						<p>
+							<img style="height: 30vh;" data-src="./img/gender.png" />
+						</p>
+					</section>
+					<section>
+						<p>Verteilung Alter</p>
+						<p>
+							<img style="height: 30vh;" data-src="./img/age.png" />
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Ergebnisse</h1>
+					</section>
+					<section>
+						<p>KMO</p>
+						<p>
+							<img style="height: 60vh;" data-src="./img/kmo.png" />
+						</p>
+					</section>
+					<section>
+						<p>Bartlett</p>
+						<p>
+							<img style="height: 20vh;" data-src="./img/bartlett.png" />
+						</p>
+					</section>
+					<section>
+						<p>
+							<img style="height: 80vh;" data-src="./img/ca.png" />
+						</p>
+					</section>
+					<section>
+						<h3>Chronbach Alpha Tests</h3>
+					</section>
+					<section>
+						<p>RC1</p>
+						<p>
+							<img style="height: 80vh;" data-src="./img/rc1.png" />
+						</p>
+					</section>
+					<section>
+						<p>RC2</p>
+						<p>
+							<img style="height: 80vh;" data-src="./img/rc2.png" />
+						</p>
+					</section>
+					<section>
+						<p>RC3</p>
+						<p>
+							<img style="height: 80vh;" data-src="./img/rc3.png" />
+						</p>
+					</section>
+				</section>
+				<section class="slide level1">
+					<h1>Wubba Lubba dub-dub</h1>
+				</section>
 			</div>
 		</div>
 
-		<script src="js/reveal.js"></script>
+		<script src="https://revealjs.com/lib/js/head.min.js"></script>
+		<script src="https://revealjs.com/js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+
+			// make presenter buttons working
+			Reveal.configure({
+				slideNumber: true,
+				keyboard: {
+					38: 'next', // go to the next slide when the ENTER key is pressed
+					40: 'prev',
+					9: 'toggleOverview',
+					13: 'toggleOverview'
+				}
+			});
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 		</script>
